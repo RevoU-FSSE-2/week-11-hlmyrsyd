@@ -11,11 +11,6 @@ paths:
   /users/register:
     post:
       summary: Register for new user
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/RegisterUser"
       responses:
         "201":
           description: User successfully registered
@@ -38,7 +33,3 @@ paths:
 
         "400":
           description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/BadRequest"

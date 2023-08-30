@@ -1,3 +1,7 @@
 /controllers/tasks.js
 /routes/tasks.js
+/models/tasks.js
+/db/connect.js
 /node_modules
+.env
+
