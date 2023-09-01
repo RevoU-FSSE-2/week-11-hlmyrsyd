@@ -14,8 +14,6 @@ const app = express();
 const tasks = require('./routes/tasks')
 const users = require('./routes/user')
 
-const mainRouter = require('./routes/main')
-
 const notFound = require('./middleware/not-found')
 
 // DB
@@ -51,7 +49,5 @@ app.use(express.json())
 
 app.use('/api/v1/user', users) //user
 app.use('/api/v1/tasks', authenticationUser, tasks) //Task
-
-app.use('/api/v1', mainRouter)
 
 app.use(notFound)

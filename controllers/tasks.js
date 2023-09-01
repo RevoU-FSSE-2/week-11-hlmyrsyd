@@ -1,13 +1,16 @@
 const Task = require('../models/tasks')
+const { StatusCodes } = require('http-status-codes')
 // const asyncWrapper = requre('../middleware/async')
 
 const getAllTasks = async (req, res) => {
-    try {
-        const tasks = await Task.find({})
-        res.status(200).json({ tasks })
-    } catch (error) {
-        res.status(500).json({ msg: erro })
-    }
+    const tasks = await Task.find({createdBy:req.user.userId}).sort('createdAt')
+    res.status(StatusCodes.OK).json({tasks, count: tasks.lenght})
+    // try {
+    //     const tasks = await Task.find({})
+    //     res.status(200).json({ tasks })
+    // } catch (error) {
+    //     res.status(500).json({ msg: error })
+    // }
 }
 
 const createTask = async (req, res) => {
